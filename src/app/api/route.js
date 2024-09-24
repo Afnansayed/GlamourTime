@@ -1,9 +1,11 @@
 import { connectDb } from "@/lib/connectDb";
 
 export const GET = async (req) => {
-    
+    //console.log(req.url)
     const { searchParams } = new URL(req.url);
     const collection = searchParams.get("collection");
+   // console.log(searchParams)
+   // console.log(collection)
 
     try{
         const db = await connectDb();

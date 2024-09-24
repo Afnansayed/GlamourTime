@@ -1,9 +1,17 @@
 import React from 'react';
+import PopularItems from './PopularItems';
+import DynamicTittle from '@/components/sheared/dynamcTitttle/DynamicTittle';
 
 const PopularServices = () => {
     return (
-        <div>
-            Popular Services
+        <div >
+              <div>
+                <DynamicTittle/>
+              </div>
+
+            <div className='max-w-6xl mx-auto'>
+                <PopularItems/>
+            </div>
         </div>
     );
 };
