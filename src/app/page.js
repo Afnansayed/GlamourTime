@@ -4,6 +4,7 @@ import Copun from "@/components/HomePage/copun/Copun";
 import Interior from "@/components/HomePage/interior/Interior";
 import OurTeam from "@/components/HomePage/OurTeam/OurTeam";
 import PopularServices from "@/components/HomePage/popuparServices/PopularServices";
+import Question from "@/components/HomePage/question/Question";
 import Testimonial from "@/components/HomePage/testimonial/Testimonial";
 
  
@@ -17,6 +18,7 @@ export default function Home() {
           <Interior/>
           <Chair/>
           <OurTeam/>
+          <Question/>
           <Testimonial/>
     </div>
   );
