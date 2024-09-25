@@ -1,9 +1,11 @@
 import { connectDb } from "@/lib/connectDb";
+import { ObjectId } from "mongodb";
 
 export const GET = async (req) => {
     //console.log(req.url)
     const { searchParams } = new URL(req.url);
     const collection = searchParams.get("collection");
+    const id = searchParams.get('id');
    // console.log(searchParams)
    // console.log(collection)
 
@@ -13,7 +15,15 @@ export const GET = async (req) => {
         switch(collection){
             case "services": 
             const servicesCollection = db.collection("services");
-            result = await servicesCollection.find().toArray();
+            if(id){
+                const query = { _id: new ObjectId(id) };
+                result = await servicesCollection.findOne(query);
+                if(!result){
+                    return Response.json({message: 'service not found'} , {status: 404});
+                }
+            }else{
+                result = await servicesCollection.find().toArray();
+             }
             break;
 
             case "stylists": 

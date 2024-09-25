@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const PopularCart = ({ service }) => {
   return (
-    <section className="bg-base-100 w-36 lg:w-48 mx-auto p-2 shadow-2xl mb-2 text-sm">
+    <Link href={`/${service._id}`} className="bg-base-100 w-36 lg:w-48 mx-auto p-2 shadow-2xl mb-2 text-sm hover:scale-110">
       <div>
         <Image
           src={service.image}
@@ -25,7 +26,7 @@ const PopularCart = ({ service }) => {
           {service?.duration}
         </h3>
       </div>
-    </section>
+    </Link>
   );
 };
 

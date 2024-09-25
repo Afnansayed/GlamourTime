@@ -6,7 +6,7 @@ import OurTeam from "@/components/HomePage/OurTeam/OurTeam";
 import PopularServices from "@/components/HomePage/popuparServices/PopularServices";
 import Question from "@/components/HomePage/question/Question";
 import Testimonial from "@/components/HomePage/testimonial/Testimonial";
-
+import Footer from '@/components/sheared/Footer/Fotter';
  
 
 export default function Home() {
@@ -20,6 +20,7 @@ export default function Home() {
           <OurTeam/>
           <Question/>
           <Testimonial/>
+          <Footer/>
     </div>
   );
 }
