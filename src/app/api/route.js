@@ -16,9 +16,14 @@ export const GET = async (req) => {
             result = await servicesCollection.find().toArray();
             break;
 
-            case "users": 
-            const usersCollection = db.collection("users");
+            case "stylists": 
+            const usersCollection = db.collection("stylists");
             result = await usersCollection.find().toArray();
+            break;
+
+            case 'reviews' : 
+            const reviewsCollection = db.collection("reviews");
+            result = await reviewsCollection.find().toArray();
             break;
 
             default: 
