@@ -17,12 +17,12 @@ const ServiceDetailPage = ({ params }) => {
     },[])
      console.log(service)
     return (
-        <div className='mt-12 flex'>
+        <div className='mt-12 flex flex-col md:flex-row '>
             <div className='w-full'>
                 <Image className='w-full' src={service.image} width={500} height={500} alt="service picture"/>
             </div>
             
-            <div className='bg-gradient-to-r from-sky-300 to-cyan-50 flex justify-center items-center w-full'>
+            <div className='bg-gradient-to-r from-sky-300 to-cyan-50 flex justify-center items-center w-full p-8 md:p-0 lg:p-0'>
                 <div>
                 <h1 className='text-3xl font-bold text-gray-800'>{service.name}</h1>
                 <p className='text-gray-600'>{service.description}</p>
