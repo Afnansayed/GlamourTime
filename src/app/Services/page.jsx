@@ -3,22 +3,23 @@ import Image from 'next/image';
 import React from 'react';
 import  image from '../../../public/banner-2.jpg'
 import ServiceItem from '@/components/servicePage/serviceItem/ServiceItem';
-import useAxiosPublic from '@/hooks/useAxiosPublic/useAxiosPublic';
 import { useEffect, useState } from 'react';
 const ServicesPage = () => {
-    // const [services, setServices] = useState([]);
-    // const axiosPublic = useAxiosPublic();
-    // useEffect(() => {
-    //     try{
-    //      axiosPublic.get('/Services/api')
-    //      .then(res => {
-    //          setServices(res.data)
-    //      })
-    //     }catch(error){
-    //         console.log(error)
-    //     }
-    //  },[])
-    //     console.log(services)
+    const [price, setPrice] = useState('');
+    const [search, setSearch] = useState('');
+
+    // price filter
+    const handlePrice = (e) => {
+        const value = e.target.value;
+        setPrice(value);
+    }
+
+    const handleSearch = (e) => {
+        const value = e.target.value;
+        setSearch(value);
+    }
+
+    console.log(search)
     return (
     <div>
         <div className='relative'>
@@ -27,11 +28,11 @@ const ServicesPage = () => {
              </div>
              <div className='w-3/4 ml-12  md:w-1/2 mx-auto bg-gradient-to-t p-8 from-sky-300 to-cyan-50 absolute bottom-[-50px] md:right-[220px] lg:right-[320px] rounded-md'>
                 <div className='flex'>
-                  <input className='p-2 w-full text-gray-600' type="text" placeholder='search....' />
-                  <select className='p-2 w-full text-center text-gray-600 border-l-2'>
+                  <input onChange={handleSearch} className='p-2 w-full text-gray-600' type="text" placeholder='search....' />
+                  <select onChange={handlePrice} className='p-2 w-full text-center text-gray-600 border-l-2'>
                     <option value="">Price Order</option>
-                    <option value="asc">High to Low</option>
-                    <option value="dsc">Low to High</option>
+                    <option value="dsc">High to Low</option>
+                    <option value="asc">Low to High</option>
                   </select>
                 </div>
                 <div>
@@ -42,7 +43,7 @@ const ServicesPage = () => {
         {/* banner section end */}
 
         <div className='mt-16 md:mt-24'>
-            <ServiceItem/>
+            <ServiceItem price={price} search={search} />
         </div>
 
     </div>    

@@ -4,21 +4,26 @@ import useAxiosPublic from '@/hooks/useAxiosPublic/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 
 
-const ServiceItem = () => {
+const ServiceItem = ({price , search}) => {
     const axiosPublic = useAxiosPublic();
     
     const {data: services = [], refetch , isLoading} = useQuery({
         queryKey: ['services'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/Services/api');
+            const res = await axiosPublic.get(`/Services/api?price=${price}&search=${search}`);
             return res.data;
         }
     })
+    useEffect(() => {
+        refetch()
+    },[price, search])
+
     if(isLoading){
         return  Array.from({ length: 6 }).map((_, idx) => (
             <div key={idx} className="card card-side bg-base-100 shadow-xl h-[250px]">
