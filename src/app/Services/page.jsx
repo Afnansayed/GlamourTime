@@ -1,13 +1,31 @@
+'use client'
 import Image from 'next/image';
 import React from 'react';
 import  image from '../../../public/banner-2.jpg'
+import ServiceItem from '@/components/servicePage/serviceItem/ServiceItem';
+import useAxiosPublic from '@/hooks/useAxiosPublic/useAxiosPublic';
+import { useEffect, useState } from 'react';
 const ServicesPage = () => {
+    // const [services, setServices] = useState([]);
+    // const axiosPublic = useAxiosPublic();
+    // useEffect(() => {
+    //     try{
+    //      axiosPublic.get('/Services/api')
+    //      .then(res => {
+    //          setServices(res.data)
+    //      })
+    //     }catch(error){
+    //         console.log(error)
+    //     }
+    //  },[])
+    //     console.log(services)
     return (
+    <div>
         <div className='relative'>
              <div className='w-full h-[252px]'>
                    <Image className='w-full h-full'  src={image} alt='banner' height={500} width={500}/>
              </div>
-             <div className='w-3/4 ml-12 md:ml-0 md:w-1/2 mx-auto bg-gradient-to-t p-8 from-sky-300 to-cyan-50 absolute bottom-[-50px] md:right-[320px] rounded-md'>
+             <div className='w-3/4 ml-12  md:w-1/2 mx-auto bg-gradient-to-t p-8 from-sky-300 to-cyan-50 absolute bottom-[-50px] md:right-[220px] lg:right-[320px] rounded-md'>
                 <div className='flex'>
                   <input className='p-2 w-full text-gray-600' type="text" placeholder='search....' />
                   <select className='p-2 w-full text-center text-gray-600 border-l-2'>
@@ -21,6 +39,13 @@ const ServicesPage = () => {
                 </div>
              </div>
         </div>
+        {/* banner section end */}
+
+        <div className='mt-16 md:mt-24'>
+            <ServiceItem/>
+        </div>
+
+    </div>    
     );
 };
 
