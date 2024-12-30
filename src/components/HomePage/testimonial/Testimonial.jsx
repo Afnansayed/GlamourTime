@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 import useAxiosPublic from '@/hooks/useAxiosPublic/useAxiosPublic';
 import Image from 'next/image';
@@ -14,13 +15,12 @@ const Testimonial = () => {
     const axiosPublic = useAxiosPublic();
 
     useEffect(() => {
-           axiosPublic.get('/api?collection=reviews')
+           axiosPublic.get('/reviews')
            .then(res => {
               setReviews(res.data)
            })
     
     },[])
-
     const setings = {
         dots: true,
         infinite: true,

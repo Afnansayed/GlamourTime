@@ -16,7 +16,7 @@ const ServiceItem = ({price , search}) => {
     const {data: services = [], refetch , isLoading} = useQuery({
         queryKey: ['services'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/Services/api?price=${price}&search=${search}`);
+            const res = await axiosPublic.get(`/services?price=${price}&search=${search}`);
             return res.data;
         }
     })

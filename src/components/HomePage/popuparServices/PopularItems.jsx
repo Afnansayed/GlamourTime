@@ -10,16 +10,18 @@ const PopularItems = () => {
 
      useEffect(() => {
              try{
-                axiosPublic.get('/api?collection=services')
+                axiosPublic.get('/services')
                 .then(res => {
-                   setServices(res.data)
+                   setServices(res.data.services)
+                   console.log(res.data.services)
                })
              }catch(error){
                 console.log(error)
              }
 
      },[])
-     console.log(services);
+      // const servicess =services?.services;
+      console.log(services)
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {
@@ -28,6 +30,7 @@ const PopularItems = () => {
                 service={service}
                 ></PopularCart>)
               }
+              comeing soon
         </div>
     );
 };

@@ -14,7 +14,7 @@ const OurTeam = () => {
 
      useEffect(()=> {
           try{
-               axiosPublic.get('/api?collection=stylists')
+               axiosPublic.get('/stylists')
                .then(res => setTeam(res.data))
           }catch(err){
             console.log(err)
